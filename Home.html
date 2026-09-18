@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skill Learn - Cursos</title>
+
+<link rel="stylesheet" href="Home.css">
+<link rel="stylesheet" href="ProfileMenu.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="Home.html" class="logo">
+        Skill Learn
+    </a>
+
+    <div class="search-container" id="searchContainer" role="search" aria-expanded="false" aria-controls="courseFilters">
+        <input id="searchInput" type="text" placeholder="Buscar por título, categoría o publicador" aria-label="Buscar cursos">
+
+        <button id="searchButton" class="search-button" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+            </svg>
+        </button>
+    </div>
+
+    <div class="course-filters" id="courseFilters" aria-label="Filtros de cursos" hidden>
+
+        <label>
+            Categoría
+            <select id="categoryFilter">
+                <option value="">Todas</option>
+                <option value="Gratuitos">Gratuitos</option>
+                <option value="Arte">Arte</option>
+                <option value="Programación">Programación</option>
+            </select>
+        </label>
+
+        <label>
+            Instructor
+            <input id="authorFilter" type="text" placeholder="Nombre de usuario">
+        </label>
+
+        <label>
+            Publicados desde
+            <input id="dateFromFilter" type="date">
+        </label>
+
+        <label>
+            Publicados hasta
+            <input id="dateToFilter" type="date">
+        </label>
+
+        <button id="clearFilters" class="clear-filters" type="button">Limpiar filtros</button>
+
+    </div>
+
+    <div class="profile-menu-wrapper">
+        <a class="message-button" href="Mensaje.html" aria-label="Abrir mensajes">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+            </svg>
+        </a>
+
+        <button class="profile-button" type="button" aria-label="Abrir menú de perfiles" aria-expanded="false" aria-controls="profileMenu">
+            <img src="https://i.pinimg.com/736x/43/b8/f7/43b8f757efbe31ed48e6875165f3ee5d.jpg" alt="Mi perfil">
+        </button>
+
+        <nav id="profileMenu" class="profile-menu" aria-label="Perfiles" hidden>
+            <a href="PerfilAlumno.html">Perfil Alumno</a>
+            <a href="PerfilInstructor.html">Perfil Instructor</a>
+            <a href="PerfilAdmin.html">Perfil Administrador</a>
+        </nav>
+    </div>
+
+</header>
+
+<main class="main-content">
+
+    <div class="welcome">
+
+        <h1>
+            Aprende algo nuevo
+        </h1>
+
+        <p>
+            Descubre cursos creados para desarrollar tus habilidades.
+        </p>
+
+    </div>
+
+    <p id="noResults" class="no-results" hidden>No se encontraron cursos activos con esos filtros.</p>
+
+    <!-- CURSOS -->
+
+    <section class="course-section">
+
+        <div class="category-header">
+
+            <h2>
+                Gratuitos
+            </h2>
+
+            <div class="carousel-buttons">
+
+                <button
+                    class="carousel-btn"
+                    onclick="moverCarrusel('gratuitos', -1)"
+                >
+                    ‹
+                </button>
+
+                <button
+                    class="carousel-btn"
+                    onclick="moverCarrusel('gratuitos', 1)"
+                >
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-carousel" id="gratuitos">
+
+            <a href="Curso.html" class="course-card" data-category="Gratuitos" data-author="Ana López" data-created="2026-08-12" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/1200x/ad/ee/76/adee76dcfbdec182a82cecf7b0e7f891.jpg"
+                    alt="Curso de escritura"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Introducción a la escritura creativa
+                    </h3>
+
+                    <span class="levels">
+                        5 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Ana López
+                    </p>
+
+                    <strong class="price free">
+                        Gratis
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Gratuitos" data-author="Carlos Méndez" data-created="2026-08-18" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/1200x/61/db/2a/61db2a0600dc9c62a48ae95f8fdde94c.jpg"
+                    alt="Curso de dibujo"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Fundamentos del dibujo
+                    </h3>
+
+                    <span class="levels">
+                        6 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Carlos Méndez
+                    </p>
+
+                    <strong class="price free">
+                        Gratis
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Gratuitos" data-author="Laura Torres" data-created="2026-08-22" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/1200x/3b/c0/c5/3bc0c5e5cb3b8b85b448c7869823b35d.jpg"
+                    alt="Curso de tecnología"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Introducción a la tecnología
+                    </h3>
+
+                    <span class="levels">
+                        4 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Laura Torres
+                    </p>
+
+                    <strong class="price free">
+                        Gratis
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Gratuitos" data-author="Jorge Ramírez" data-created="2026-08-28" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/736x/17/06/36/1706366b8c4fd34fb40b515c556d0352.jpg"
+                    alt="Curso de productividad"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Organización y productividad
+                    </h3>
+
+                    <span class="levels">
+                        5 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Jorge Ramírez
+                    </p>
+
+                    <strong class="price free">
+                        Gratis
+                    </strong>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="course-section">
+
+        <div class="category-header">
+
+            <h2>
+                Arte
+            </h2>
+
+            <div class="carousel-buttons">
+
+                <button
+                    class="carousel-btn"
+                    onclick="moverCarrusel('arte', -1)"
+                >
+                    ‹
+                </button>
+
+                <button
+                    class="carousel-btn"
+                    onclick="moverCarrusel('arte', 1)"
+                >
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-carousel" id="arte">
+
+            <a href="Curso.html" class="course-card" data-category="Arte" data-author="Laura Torres" data-created="2026-07-15" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/1200x/b0/55/19/b05519506e9927d00e5e55d041b8092d.jpg"
+                    alt="Curso de arte digital"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Vende tu arte en línea
+                    </h3>
+
+                    <span class="levels">
+                        8 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Laura Torres
+                    </p>
+
+                    <strong class="price">
+                        $299 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Arte" data-author="Ana López" data-created="2026-07-21" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/736x/c2/65/e4/c265e409ded90f2466e8bac9f3231f17.jpg"
+                    alt="Curso de pintura"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Técnicas de pintura
+                    </h3>
+
+                    <span class="levels">
+                        7 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Ana López
+                    </p>
+
+                    <strong class="price">
+                        $249 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Arte" data-author="Carlos Méndez" data-created="2026-08-02" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/736x/25/8a/5e/258a5ea6afb3a408bae77aa0380e8267.jpg"
+                    alt="Curso de ilustración"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Ilustración digital
+                    </h3>
+
+                    <span class="levels">
+                        10 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Carlos Méndez
+                    </p>
+
+                    <strong class="price">
+                        $349 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Arte" data-author="Jorge Ramírez" data-created="2026-08-08" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/1200x/1d/b6/73/1db673f5a2bd4c262a19ff8aad029969.jpg"
+                    alt="Curso de composición"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Composición artística
+                    </h3>
+
+                    <span class="levels">
+                        6 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Jorge Ramírez
+                    </p>
+
+                    <strong class="price">
+                        $199 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="course-section">
+
+        <div class="category-header">
+
+            <h2>
+                Programación
+            </h2>
+
+            <div class="carousel-buttons">
+
+                <button
+                    class="carousel-btn"
+                    onclick="moverCarrusel('programacion', -1)"
+                >
+                    ‹
+                </button>
+
+                <button
+                    class="carousel-btn"
+                    onclick="moverCarrusel('programacion', 1)"
+                >
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-carousel" id="programacion">
+
+            <a href="Curso.html" class="course-card" data-category="Programación" data-author="Carlos Méndez" data-created="2026-08-10" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/736x/95/07/e2/9507e2cac38cbb9e57326e3b6ba33364.jpg"
+                    alt="Curso de programación"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Programación desde cero
+                    </h3>
+
+                    <span class="levels">
+                        9 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Carlos Méndez
+                    </p>
+
+                    <strong class="price">
+                        $399 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Programación" data-author="Ana López" data-created="2026-08-16" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/736x/14/20/fd/1420fdb2c1b84a55bc9a61e3050b0fa5.jpg"
+                    alt="Curso de JavaScript"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        JavaScript para principiantes
+                    </h3>
+
+                    <span class="levels">
+                        12 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Ana López
+                    </p>
+
+                    <strong class="price">
+                        $449 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Programación" data-author="Jorge Ramírez" data-created="2026-08-24" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/736x/a0/72/9f/a0729f9fe136d802da68052694ec63c8.jpg"
+                    alt="Curso de desarrollo web"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Desarrollo Web
+                    </h3>
+
+                    <span class="levels">
+                        15 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Jorge Ramírez
+                    </p>
+
+                    <strong class="price">
+                        $499 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a href="Curso.html" class="course-card" data-category="Programación" data-author="Laura Torres" data-created="2026-08-30" data-status="activo">
+
+                <img
+                    src="https://i.pinimg.com/736x/5f/48/bc/5f48bc5ed69bf645df0bf40748049406.jpg"
+                    alt="Curso de Python"
+                >
+
+                <div class="course-info">
+
+                    <h3>
+                        Python desde cero
+                    </h3>
+
+                    <span class="levels">
+                        11 niveles
+                    </span>
+
+                    <p class="instructor">
+                        Instructor: Laura Torres
+                    </p>
+
+                    <strong class="price">
+                        $449 MXN
+                    </strong>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="Home.js"></script>
+
+</body> </html>

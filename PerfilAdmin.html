@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil Admin - Skill Learn</title>
+
+    <link rel="stylesheet" href="PerfilAdmin.css">
+    <link rel="stylesheet" href="ProfileMenu.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="Home.html" class="logo">
+        Skill Learn
+    </a>
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar usuario"
+        >
+
+        <button
+            class="search-button"
+            id="searchButton"
+            aria-label="Buscar"
+        >
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line
+                    x1="16.5"
+                    y1="16.5"
+                    x2="21"
+                    y2="21"
+                ></line>
+            </svg>
+
+        </button>
+
+    </div>
+
+    <div class="profile-menu-wrapper">
+        <a class="message-button" href="Mensaje.html" aria-label="Abrir mensajes">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+            </svg>
+        </a>
+
+        <a
+            href="PerfilAdmin.html"
+            class="profile-button"
+            title="Perfil administrador"
+        >
+
+        <img
+            src="https://i.pinimg.com/736x/43/b8/f7/43b8f757efbe31ed48e6875165f3ee5d.jpg"
+            alt="Perfil"
+        >
+
+        </a>
+    </div>
+
+</header>
+
+
+<main class="admin-page">
+
+    <section class="page-title">
+
+        <h1>Perfil administrador</h1>
+
+        <p>
+            Consulta de reportes
+        </p>
+
+    </section>
+
+
+    <section class="report-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>Reporte de usuarios</h2>
+
+                <p>
+                    Selecciona el tipo de usuario que deseas consultar.
+                </p>
+
+            </div>
+
+            <div class="total-users">
+
+                <span id="totalUsers">0</span>
+
+                usuarios
+
+            </div>
+
+        </div>
+
+        <div class="filters">
+
+            <div class="filter-group">
+
+                <label for="tipoUsuario">
+                    Tipo de usuario
+                </label>
+
+                <select id="tipoUsuario">
+
+                    <option value="instructor">
+                        Instructor
+                    </option>
+
+                    <option value="estudiante">
+                        Estudiante
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="clearFilters"
+                class="clear-button"
+            >
+                Limpiar
+            </button>
+
+        </div>
+
+        <div
+            id="instructorReport"
+            class="report-table-container"
+        >
+
+            <table class="users-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Usuario</th>
+
+                        <th>Nombre</th>
+
+                        <th>Fecha de ingreso</th>
+
+                        <th>Cursos ofrecidos</th>
+
+                        <th>Total de ganancias</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="instructorBody">
+
+                    <tr
+                        data-type="instructor"
+                        data-search="ana instructor"
+                    >
+
+                        <td>
+                            <strong>ana_garcia</strong>
+                        </td>
+
+                        <td>
+                            Ana García
+                        </td>
+
+                        <td>
+                            12 ene 2026
+                        </td>
+
+                        <td>
+                            <span class="course-count">
+                                5
+                            </span>
+                        </td>
+
+                        <td class="money">
+                            $12,500.00
+                        </td>
+
+                    </tr>
+
+
+                    <tr
+                        data-type="instructor"
+                        data-search="carlos instructor"
+                    >
+
+                        <td>
+                            <strong>carlos_mtz</strong>
+                        </td>
+
+                        <td>
+                            Carlos Martínez
+                        </td>
+
+                        <td>
+                            25 feb 2026
+                        </td>
+
+                        <td>
+                            <span class="course-count">
+                                3
+                            </span>
+                        </td>
+
+                        <td class="money">
+                            $8,750.00
+                        </td>
+
+                    </tr>
+
+
+                    <tr
+                        data-type="instructor"
+                        data-search="laura instructor"
+                    >
+
+                        <td>
+                            <strong>laura_dz</strong>
+                        </td>
+
+                        <td>
+                            Laura Díaz
+                        </td>
+
+                        <td>
+                            08 mar 2026
+                        </td>
+
+                        <td>
+                            <span class="course-count">
+                                7
+                            </span>
+                        </td>
+
+                        <td class="money">
+                            $18,300.00
+                        </td>
+
+                    </tr>
+
+
+                    <tr
+                        data-type="instructor"
+                        data-search="jorge instructor"
+                    >
+
+                        <td>
+                            <strong>jorge_r</strong>
+                        </td>
+
+                        <td>
+                            Jorge Ramírez
+                        </td>
+
+                        <td>
+                            17 abr 2026
+                        </td>
+
+                        <td>
+                            <span class="course-count">
+                                2
+                            </span>
+                        </td>
+
+                        <td class="money">
+                            $4,250.00
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div
+            id="studentReport"
+            class="report-table-container"
+            style="display: none;"
+        >
+
+            <table class="users-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Usuario</th>
+
+                        <th>Nombre</th>
+
+                        <th>Fecha de ingreso</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="studentBody">
+
+                    <tr
+                        data-type="estudiante"
+                        data-search="maria estudiante"
+                    >
+
+                        <td>
+                            <strong>maria_lopez</strong>
+                        </td>
+
+                        <td>
+                            María López
+                        </td>
+
+                        <td>
+                            05 may 2026
+                        </td>
+
+                    </tr>
+
+
+                    <tr
+                        data-type="estudiante"
+                        data-search="diego estudiante"
+                    >
+
+                        <td>
+                            <strong>diego_p</strong>
+                        </td>
+
+                        <td>
+                            Diego Pérez
+                        </td>
+
+                        <td>
+                            21 may 2026
+                        </td>
+
+                    </tr>
+
+
+                    <tr
+                        data-type="estudiante"
+                        data-search="sofia estudiante"
+                    >
+
+                        <td>
+                            <strong>sofia_castro</strong>
+                        </td>
+
+                        <td>
+                            Sofía Castro
+                        </td>
+
+                        <td>
+                            02 jun 2026
+                        </td>
+
+                    </tr>
+
+
+                    <tr
+                        data-type="estudiante"
+                        data-search="raul_n estudiante"
+                    >
+
+                        <td>
+                            <strong>raul_n</strong>
+                        </td>
+
+                        <td>
+                            Raúl Navarro
+                        </td>
+
+                        <td>
+                            14 jun 2026
+                        </td>
+
+                    </tr>
+
+
+                    <tr
+                        data-type="estudiante"
+                        data-search="elena_m estudiante"
+                    >
+
+                        <td>
+                            <strong>elena_m</strong>
+                        </td>
+
+                        <td>
+                            Elena Morales
+                        </td>
+
+                        <td>
+                            28 jun 2026
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div
+            id="noResults"
+            class="no-results"
+        >
+            No se encontraron usuarios.
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="PerfilAdmin.js"></script>
+
+</body>
+
+</html>

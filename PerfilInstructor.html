@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Instructor - Skill Learn</title>
+    <link rel="stylesheet" href="PerfilInstructor.css">
+    <link rel="stylesheet" href="ProfileMenu.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="Home.html" class="logo">Skill Learn</a>
+
+    <div class="search-container">
+        <input type="text" placeholder="Buscar clases">
+        <button class="search-button" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+            </svg>
+        </button>
+    </div>
+
+    <div class="profile-menu-wrapper">
+        <a class="message-button" href="Mensaje.html" aria-label="Abrir mensajes">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+            </svg>
+        </a>
+
+        <button class="profile-button" type="button" aria-label="Abrir menú de perfiles" aria-expanded="false" aria-controls="profileMenu">
+            <img src="https://i.pinimg.com/736x/43/b8/f7/43b8f757efbe31ed48e6875165f3ee5d.jpg" alt="Perfil">
+        </button>
+
+        <nav id="profileMenu" class="profile-menu" aria-label="Perfiles" hidden>
+            <a href="PerfilAlumno.html">Perfil Alumno</a>
+            <a href="PerfilInstructor.html">Perfil Instructor</a>
+            <a href="PerfilAdmin.html">Perfil Administrador</a>
+        </nav>
+    </div>
+</header>
+
+<main class="profile-page">
+
+    <section class="profile-title">
+        <h1>Perfil del instructor</h1>
+        <p>Reporte de cursos e ingresos</p>
+    </section>
+
+    <section class="profile-card">
+        <img src="https://i.pinimg.com/736x/43/b8/f7/43b8f757efbe31ed48e6875165f3ee5d.jpg"
+             alt="Instructor" class="profile-image">
+        <div class="profile-info">
+            <h2>Instructor</h2>
+            <p>Panel de reportes de Skill Learn</p>
+        </div>
+    </section>
+
+    <section class="report-section">
+
+        <div class="section-header">
+            <div>
+                <h2>Reporte de cursos</h2>
+                <p>Consulta el rendimiento de cada curso y el detalle de sus alumnos.</p>
+            </div>
+            <div class="summary-total">
+                <small>Ingresos totales</small>
+                <strong id="totalIngresos">$0.00</strong>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="fechaInicio">Cursos creados desde</label>
+                <input type="date" id="fechaInicio">
+            </div>
+
+            <div class="filter-group">
+                <label for="fechaFin">Cursos creados hasta</label>
+                <input type="date" id="fechaFin">
+            </div>
+
+            <div class="filter-group">
+                <label for="categoria">Categoría</label>
+                <select id="categoria">
+                    <option value="todas">Todas</option>
+                    <option value="Programación">Programación</option>
+                    <option value="Diseño">Diseño</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="estadoCurso">Estado del curso</label>
+                <select id="estadoCurso">
+                    <option value="todos">Todos</option>
+                    <option value="activo">Solo activos</option>
+                </select>
+            </div>
+
+            <button type="button" id="clearFilters" class="clear-button">Limpiar filtros</button>
+        </div>
+
+        <div class="courses-list" id="coursesList">
+
+            <article class="course-card"
+                data-category="Programación" data-status="activo" data-created="2026-08-01">
+                <div class="course-header">
+                    <div>
+                        <span class="course-category">Programación</span>
+                        <h3>Desarrollo Web</h3>
+                        <p>Creado: <span class="course-date">01 ago 2026</span></p>
+                    </div>
+                    <span class="status active">Activo</span>
+                </div>
+
+                <div class="course-summary">
+                    <div><span>Alumnos inscritos</span><strong>4</strong></div>
+                    <div><span>Nivel promedio</span><strong>63%</strong></div>
+                    <div><span>Ingresos del curso</span><strong>$1,800.00</strong></div>
+                </div>
+
+                <div class="students-table-container">
+                    <h4>Detalle de alumnos inscritos</h4>
+                    <table class="students-table">
+                        <thead>
+                            <tr>
+                                <th>Alumno</th><th>Inscripción</th><th>Nivel de avance</th>
+                                <th>Precio pagado</th><th>Forma de pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Ana López</strong></td><td>05 ago 2026</td><td><span class="level">80%</span></td><td>$450.00</td><td>Tarjeta</td></tr>
+                            <tr><td><strong>Carlos Ruiz</strong></td><td>07 ago 2026</td><td><span class="level">65%</span></td><td>$450.00</td><td>PayPal</td></tr>
+                            <tr><td><strong>María Torres</strong></td><td>12 ago 2026</td><td><span class="level">55%</span></td><td>$450.00</td><td>Tarjeta</td></tr>
+                            <tr><td><strong>Diego Pérez</strong></td><td>18 ago 2026</td><td><span class="level">50%</span></td><td>$450.00</td><td>Paypal</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="course-total">Total de ingresos del curso: <strong>$1,800.00</strong></div>
+            </article>
+
+            <article class="course-card"
+                data-category="Diseño" data-status="activo" data-created="2026-07-15">
+                <div class="course-header">
+                    <div>
+                        <span class="course-category">Diseño</span>
+                        <h3>Diseño Gráfico</h3>
+                        <p>Creado: <span class="course-date">15 jul 2026</span></p>
+                    </div>
+                    <span class="status active">Activo</span>
+                </div>
+
+                <div class="course-summary">
+                    <div><span>Alumnos inscritos</span><strong>3</strong></div>
+                    <div><span>Nivel promedio</span><strong>72%</strong></div>
+                    <div><span>Ingresos del curso</span><strong>$1,350.00</strong></div>
+                </div>
+
+                <div class="students-table-container">
+                    <h4>Detalle de alumnos inscritos</h4>
+                    <table class="students-table">
+                        <thead>
+                            <tr>
+                                <th>Alumno</th><th>Inscripción</th><th>Nivel de avance</th>
+                                <th>Precio pagado</th><th>Forma de pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Laura Gómez</strong></td><td>18 jul 2026</td><td><span class="level">85%</span></td><td>$450.00</td><td>Tarjeta</td></tr>
+                            <tr><td><strong>Jorge Díaz</strong></td><td>20 jul 2026</td><td><span class="level">70%</span></td><td>$450.00</td><td>PayPal</td></tr>
+                            <tr><td><strong>Sofía Castro</strong></td><td>29 jul 2026</td><td><span class="level">60%</span></td><td>$450.00</td><td>Paypal</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="course-total">Total de ingresos del curso: <strong>$1,350.00</strong></div>
+            </article>
+
+            <article class="course-card"
+                data-category="Marketing" data-status="inactivo" data-created="2026-06-20">
+                <div class="course-header">
+                    <div>
+                        <span class="course-category">Marketing</span>
+                        <h3>Marketing Digital</h3>
+                        <p>Creado: <span class="course-date">20 jun 2026</span></p>
+                    </div>
+                    <span class="status inactive">Inactivo</span>
+                </div>
+
+                <div class="course-summary">
+                    <div><span>Alumnos inscritos</span><strong>3</strong></div>
+                    <div><span>Nivel promedio</span><strong>48%</strong></div>
+                    <div><span>Ingresos del curso</span><strong>$900.00</strong></div>
+                </div>
+
+                <div class="students-table-container">
+                    <h4>Detalle de alumnos inscritos</h4>
+                    <table class="students-table">
+                        <thead>
+                            <tr>
+                                <th>Alumno</th><th>Inscripción</th><th>Nivel de avance</th>
+                                <th>Precio pagado</th><th>Forma de pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Pedro Sánchez</strong></td><td>23 jun 2026</td><td><span class="level">55%</span></td><td>$300.00</td><td>Tarjeta</td></tr>
+                            <tr><td><strong>Elena Morales</strong></td><td>25 jun 2026</td><td><span class="level">45%</span></td><td>$300.00</td><td>PayPal</td></tr>
+                            <tr><td><strong>Raúl Navarro</strong></td><td>30 jun 2026</td><td><span class="level">45%</span></td><td>$300.00</td><td>Tarjeta</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="course-total">Total de ingresos del curso: <strong>$900.00</strong></div>
+            </article>
+
+        </div>
+
+        <div id="noResults" class="no-results">
+            No se encontraron cursos con los filtros seleccionados.
+        </div>
+
+        <section class="payment-summary">
+            <div>
+                <h3>Ingresos totales por forma de pago</h3>
+                <p>Desglose de todos los cursos que cumplen con los filtros.</p>
+            </div>
+
+            <div class="payment-grid">
+                <div><span>Tarjeta</span><strong id="totalTarjeta">$0.00</strong></div>
+                <div><span>PayPal</span><strong id="totalPaypal">$0.00</strong></div>
+                <div><span>Transferencia</span><strong id="totalTransferencia">$0.00</strong></div>
+            </div>
+        </section>
+
+    </section>
+</main>
+
+<script src="PerfilInstructor.js"></script>
+<script src="ProfileMenu.js"></script>
+</body>
+</html>
